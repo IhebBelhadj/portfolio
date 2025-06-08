@@ -39,8 +39,12 @@ export default {
           DEFAULT: "oklch(var(--card))",
           foreground: "oklch(var(--card-foreground))",
         },
+
         // A dedicated object for syntax highlighting colors
+        
         syntax: {
+          DEFAULT: "oklch(var(--card))",
+          foreground: "oklch(var(--card-foreground))",
           keyword: "oklch(var(--sh-keyword))",
           string: "oklch(var(--sh-string))",
           function: "oklch(var(--sh-function))",
@@ -48,6 +52,7 @@ export default {
           punctuation: "oklch(var(--sh-punctuation))",
           parameter: "oklch(var(--sh-parameter))",
           property: "oklch(var(--sh-property))",
+          hightlight: "oklch(var(--sh-highlight))",
         },
       },
       borderRadius: {

@@ -10,13 +10,13 @@
   --radius: 0.5rem;
 
   /* Core Colors */
-  --background: oklch(0.16 0.03 265);
+  --background: #0f172b;
   /* Deep, cool navy blue */
-  --foreground: oklch(0.92 0.02 265);
+  --foreground: #f8fafc;
   /* Off-white, slightly cool */
-  --muted-foreground: oklch(0.55 0.02 265);
+  --muted-foreground: #90a1b9;
   /* Gray for less important text */
-  --border: oklch(0.22 0.03 265);
+  --border: #314158;
   /* Faint border for separating panes */
 
   /* Accent Colors (the vibrant cyan) */
@@ -34,18 +34,18 @@
   /* Background for the 'find me' input */
 
   /* Primary action color (we'll use accent for this design) */
-  --primary: var(--accent);
+  --primary: oklch(0.8337 0.1256 67.19);
   --primary-foreground: var(--accent-foreground);
 
   /* Ring color for focus states */
   --ring: var(--accent);
 
   /* Syntax Highlighting Colors */
-  --sh-keyword: oklch(0.7 0.19 15);
+  --sh-keyword: #615fff;
   /* Pinkish-red for 'const', 'function' */
-  --sh-string: oklch(0.75 0.15 130);
+  --sh-string: #ffa1ad;
   /* Greenish for "strings" */
-  --sh-function: oklch(0.78 0.18 230);
+  --sh-function: #00d5be;
   /* Bright blue/cyan for function names */
   --sh-comment: oklch(0.5 0.04 110);
   /* Muted green/gray for comments */
@@ -53,7 +53,7 @@
   /* Dimmer color for ':', '=', etc. */
   --sh-parameter: oklch(var(--foreground));
   /* Regular text color for parameters */
-  --sh-property: oklch(0.75 0.17 210);
+  --sh-property: #00d5be;
   /* Another blue for object properties */
 }
 
@@ -213,6 +213,13 @@ table {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-syntax-string: var(--sh-string);
+  --color-syntax-function: var(--sh-function);
+  --color-syntax-comment: var(--sh-foreground);
+  --color-syntax-punctuation: var(--sh-punctuation);
+  --color-syntax-parameter: var(--sh-parameter);
+  --color-syntax-property: var(--sh-property);
+  --color-syntax-keyword: var(--sh-keyword);
 }
 
 @layer base {
@@ -222,5 +229,6 @@ table {
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-fira-code), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 }

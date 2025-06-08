@@ -9,7 +9,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-navigation-menu": "^1.2.13",
+    "@radix-ui/react-scroll-area": "^1.2.9",
     "@radix-ui/react-slot": "^1.2.3",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",
@@ -26,6 +28,7 @@
     "react": "18.2.0",
     "react-code-blocks": "^0.1.6",
     "react-dom": "18.2.0",
+    "react-resizable-panels": "^3.0.2",
     "sugar-high": "^0.6.0",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
