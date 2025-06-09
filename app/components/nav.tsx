@@ -13,11 +13,13 @@ const navItems = [
 export function Navbar() {
   const pathname = usePathname();
 
+  const isContactActive = pathname === "/contact";
+
   return (
     <header
       className={clsx(
         "text-muted-foreground flex h-11 items-center justify-between text-sm",
-        "absolute top-0 left-0 z-10 w-full", // Position it on top
+        "absolute top-0 left-0 z-10 w-full",
         "border-border/50 border-b",
       )}
     >
@@ -31,7 +33,10 @@ export function Navbar() {
 
         {/* Navigation Tabs */}
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive =
+            item.href === "/"
+              ? pathname === item.href
+              : pathname.startsWith(item.href);
 
           return (
             <Link
@@ -56,7 +61,14 @@ export function Navbar() {
       <div className="flex items-center">
         <Link
           href="/contact"
-          className="border-border hover:text-foreground border-l px-6 py-3 transition-colors"
+          className={clsx(
+            "border-border/50 hover:text-foreground border-l px-6 py-3 transition-colors",
+            "border-b-2", // Add border for layout consistency
+            {
+              "border-b-transparent": !isContactActive,
+              "border-b-primary text-foreground": isContactActive,
+            },
+          )}
         >
           _contact-me
         </Link>

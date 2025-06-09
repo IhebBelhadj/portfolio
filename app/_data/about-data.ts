@@ -3,7 +3,6 @@ import {
   Phone,
   FileBox,
   GraduationCap,
-  Flame,
   Folder,
   type LucideIcon,
 } from "lucide-react";
@@ -66,7 +65,7 @@ export const sidebarSections: {
         },
 
         {
-          title: "index",
+          title: "index (bio)",
           path: "/about/bio",
           icon: FileBox,
           color: "text-gray-400",
@@ -103,7 +102,7 @@ export const sidebarSections: {
   ];
 
 const contentMap: Record<string, string> = {
-  bio: `/** \n * Bio Content \n * I am a software engineer... \n */`,
+  bio: `/** \n * Bio Content \n * I am a software engineer... \n \n\n\n\n\n\n\n\n test\n\n\n\n another one xD*/`,
   interests: `// My interests include Vim, React, and building cool things.`,
   "education/high-school": `// Graduated from The School of Hard Knocks.`,
   "education/university": `// Studied Computer Science at The University of Life.`,

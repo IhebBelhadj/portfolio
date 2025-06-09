@@ -62,6 +62,16 @@ html {
   color-scheme: dark;
 }
 
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1.2s step-end infinite;
+}
+
 .prose .anchor {
   @apply invisible absolute no-underline;
   margin-left: -1em;
