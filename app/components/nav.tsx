@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <header
       className={clsx(
-        "text-muted-foreground flex items-center justify-between text-sm",
+        "text-muted-foreground flex h-11 items-center justify-between text-sm",
         "absolute top-0 left-0 z-10 w-full", // Position it on top
         "border-border/50 border-b",
       )}
@@ -24,7 +24,7 @@ export function Navbar() {
       <nav className="flex items-center">
         <Link
           href="/"
-          className="border-border hover:text-foreground min-w-[13rem] border-r px-6 py-3 transition-colors"
+          className="border-border hover:text-foreground min-w-[15rem] border-r px-6 py-3 transition-colors"
         >
           Iheb-Belhadj
         </Link>

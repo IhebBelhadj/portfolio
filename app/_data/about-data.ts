@@ -1,79 +1,116 @@
-// data/about-data.ts
 import {
   Mail,
   Phone,
-  FileCode2,
+  FileBox,
   GraduationCap,
   Flame,
-  Code,
+  Folder,
+  type LucideIcon,
 } from "lucide-react";
 
-export const personalInfo = [
-  {
-    title: "bio",
-    icon: FileCode2,
-    color: "text-red-400", // Example colors
-    content: `/**
- * About me
- * I have 5 years of experience in web
- * development lorem ipsum dolor sit amet,
- * consectetur adipiscing elit, sed do eiusmod
- * tempor incididunt ut labore et dolore
- * magna aliqua. Ut enim ad minim veniam,
- * quis nostrud exercitation ullamco laboris
- * nisi ut aliquip ex ea commodo consequat.
- * Duis aute irure dolor in reprehenderit in
- * voluptate velit esse cillum dolore eu fugiat
- * nulla pariatur. Excepteur sint occaecat
- * officia deserunt mollit anim id est laborum.
- */`,
-  },
-  {
-    title: "interests",
-    icon: Flame,
-    color: "text-green-400",
-    content: "Interests content goes here...",
-  },
-];
-
-export const educationInfo = [
-  {
-    title: "high-school",
-    icon: GraduationCap,
-    color: "text-gray-400",
-    content: "High school education details...",
-  },
-  {
-    title: "university",
-    icon: GraduationCap,
-    color: "text-gray-400",
-    content: "University education details...",
-  },
-];
-
-export const contactInfo = [
-  {
-    icon: Mail,
-    label: "user@gmail.com",
-    href: "mailto:user@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "+3598246359",
-    href: "tel:+3598246359",
-  },
-];
-
-export const mainContent = {
-  education: `// Education Content
-// You can add more detailed text or even code blocks here related to your education.
-console.log("Loaded education data.");
-`,
-  bio: personalInfo.find((item) => item.title === "bio")?.content || "",
-  interests:
-    personalInfo.find((item) => item.title === "interests")?.content || "",
-  "high-school":
-    educationInfo.find((item) => item.title === "high-school")?.content || "",
-  university:
-    educationInfo.find((item) => item.title === "university")?.content || "",
+type SidebarItem = {
+  title: string;
+  path: string;
+  icon: LucideIcon;
+  color?: string;
+  items?: SidebarItem[];
 };
+
+export const sidebarSections: {
+  title: string;
+  value: string;
+  isContact?: boolean;
+  items: (SidebarItem & { label?: string; href?: string })[];
+}[] = [
+    {
+      title: "personal-info",
+      value: "personal-info",
+      items: [
+        {
+          title: "experience",
+          path: "/about/experience",
+          icon: Folder,
+          color: "text-red-400",
+
+          items: [
+            {
+              title: "Nexits",
+              path: "/about/experience/nexits",
+              icon: FileBox,
+            },
+            {
+              title: "Talan Consulting",
+              path: "/about/experience/talan",
+              icon: FileBox,
+            },
+          ],
+        },
+        {
+          title: "education",
+          path: "/about/education",
+          icon: Folder,
+          color: "text-blue-400",
+
+          items: [
+            {
+              title: "high-school",
+              path: "/about/education/high-school",
+              icon: GraduationCap,
+            },
+            {
+              title: "university",
+              path: "/about/education/university",
+              icon: GraduationCap,
+            },
+          ],
+        },
+
+        {
+          title: "index",
+          path: "/about/bio",
+          icon: FileBox,
+          color: "text-gray-400",
+        },
+        {
+          title: "interests",
+          path: "/about/interests",
+          icon: FileBox,
+          color: "text-gray-400",
+        },
+      ],
+    },
+    {
+      title: "contacts",
+      value: "contacts",
+      isContact: true,
+      items: [
+        {
+          title: "email",
+          label: "user@gmail.com",
+          path: "",
+          href: "mailto:user@gmail.com",
+          icon: Mail,
+        },
+        {
+          title: "phone",
+          label: "+3598246359",
+          path: "",
+          href: "tel:+3598246359",
+          icon: Phone,
+        },
+      ],
+    },
+  ];
+
+const contentMap: Record<string, string> = {
+  bio: `/** \n * Bio Content \n * I am a software engineer... \n */`,
+  interests: `// My interests include Vim, React, and building cool things.`,
+  "education/high-school": `// Graduated from The School of Hard Knocks.`,
+  "education/university": `// Studied Computer Science at The University of Life.`,
+  education: `// Select a sub-category from the education section to see details.`,
+  experience: `// Select a sub-category from the experience section to see details.`,
+  "experience/nexits": `// Worked at Nexits as a software engineer...`,
+  "experience/talan": `// Worked at Talan Consulting as a software engineer...`,
+};
+
+export const mainContent = contentMap;

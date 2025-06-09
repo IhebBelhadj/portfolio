@@ -21,7 +21,7 @@
 
   /* Accent Colors (the vibrant cyan) */
   --accent: oklch(0.75 0.18 230);
-  --accent-foreground: oklch(0.1 0.03 265);
+  --accent-foreground: #020618;
   /* Dark text for on top of the accent */
 
   /* Component Colors */
@@ -47,7 +47,7 @@
   /* Greenish for "strings" */
   --sh-function: #00d5be;
   /* Bright blue/cyan for function names */
-  --sh-comment: oklch(0.5 0.04 110);
+  --sh-comment: #90a1b9;
   /* Muted green/gray for comments */
   --sh-punctuation: oklch(0.6 0.02 265);
   /* Dimmer color for ':', '=', etc. */
@@ -229,6 +229,8 @@ table {
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-fira-code), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family:
+      var(--font-fira-code), ui-monospace, SFMono-Regular, Menlo, Monaco,
+      Consolas, "Liberation Mono", "Courier New", monospace;
   }
 }
