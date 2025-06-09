@@ -26,7 +26,7 @@ export const findMeAlsoIn = [
   {
     icon: Youtube,
     label: "YouTube",
-    href: "#", // Replace with your actual URL
+    href: "#",
   },
   {
     icon: Tv,

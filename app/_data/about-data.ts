@@ -102,7 +102,7 @@ export const sidebarSections: {
   ];
 
 const contentMap: Record<string, string> = {
-  bio: `/** \n * Bio Content \n * I am a software engineer... \n \n\n\n\n\n\n\n\n test\n\n\n\n another one xD*/`,
+  bio: `/** \n * Bio Content \n * I am a software engineer... \n*/`,
   interests: `// My interests include Vim, React, and building cool things.`,
   "education/high-school": `// Graduated from The School of Hard Knocks.`,
   "education/university": `// Studied Computer Science at The University of Life.`,
