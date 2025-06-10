@@ -5,15 +5,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { contactFormSchema } from "~/components/contact/schema";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "~/components/ui/resizable";
 import { ContactForm } from "~/components/contact/contact-form";
 import { ContactCodePreview } from "~/components/contact/contact-code-preview";
 import { ThankYouMessage } from "~/components/contact/thanks-message";
 import { ContactSidebar } from "~/components/contact/contact-sidebar";
+import { ContactPageLayout } from "~/components/contact/contact-page-layout"; // <-- Import the new layout
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -37,33 +33,13 @@ export default function ContactPage() {
 
   return (
     <div className="h-[calc(100vh-44px)] pt-11">
-      {" "}
-      <ResizablePanelGroup
-        direction="horizontal"
-        className="h-full rounded-lg border-none"
-      >
-        <ResizablePanel defaultSize={20} minSize={15} maxSize={25}>
-          <ContactSidebar />
-        </ResizablePanel>
-
-        <ResizableHandle withHandle className="bg-border" />
-
-        <ResizablePanel defaultSize={40} minSize={30}>
-          <div className="h-full p-8">
-            {isSubmitted ? (
-              <ThankYouMessage onReset={handleReset} />
-            ) : (
-              <ContactForm form={form} onSubmit={onSubmit} />
-            )}
-          </div>
-        </ResizablePanel>
-
-        <ResizableHandle withHandle className="bg-border" />
-
-        <ResizablePanel defaultSize={40} minSize={30}>
-          <ContactCodePreview values={watchedValues} />
-        </ResizablePanel>
-      </ResizablePanelGroup>
+      <ContactPageLayout
+        sidebar={<ContactSidebar />}
+        form={<ContactForm form={form} onSubmit={onSubmit} />}
+        codePreview={<ContactCodePreview values={watchedValues} />}
+        isSubmitted={isSubmitted}
+        thankYouMessage={<ThankYouMessage onReset={handleReset} />}
+      />
     </div>
   );
 }

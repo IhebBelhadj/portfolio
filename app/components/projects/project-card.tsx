@@ -106,12 +106,12 @@ export function ProjectCard({ project }: { project: Project }) {
       {isMaxDifficulty ? (
         <BackgroundGradient
           containerClassName="rounded-lg h-full group"
-          className="bg-card flex h-full flex-col overflow-hidden rounded-lg"
+          className="bg-accent-foreground flex h-full flex-col overflow-hidden rounded-lg"
         >
           <CardContent project={project} />
         </BackgroundGradient>
       ) : (
-        <div className="border-border bg-card group flex h-full flex-col overflow-hidden rounded-lg border">
+        <div className="border-border bg-accent-foreground group flex h-full flex-col overflow-hidden rounded-lg border">
           <CardContent project={project} />
         </div>
       )}
